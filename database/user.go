@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"net/http"
-	i "token-master/internal"
+	i "tokenbased-auth/internal"
 
 	_ "github.com/lib/pq"
 )

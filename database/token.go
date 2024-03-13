@@ -3,7 +3,7 @@ package database
 import (
 	"fmt"
 	"net/http"
-	i "token-master/internal"
+	i "tokenbased-auth/internal"
 
 	"github.com/golang-jwt/jwt"
 	_ "github.com/lib/pq"

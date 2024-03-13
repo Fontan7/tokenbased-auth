@@ -3,8 +3,8 @@ package controller
 import (
 	"errors"
 	"net/http"
-	"token-master/database"
-	"token-master/internal"
+	"tokenbased-auth/database"
+	"tokenbased-auth/internal"
 
 	"github.com/gin-gonic/gin"
 )
@@ -18,7 +18,7 @@ func UserLogin(c *gin.Context) (interface{}, *internal.Error) {
 
 	// In a real application, you'd validate the credentials here
 	// If they're valid, continue, if they're not, stop the request
-	if creds.Email != "bart@bart.com" || creds.SpotifyId != "bart777" {
+	if creds.Email != "bart@bart.com" || creds.Password!= "bart777" {
 		return nil, internal.DetailError(http.StatusUnauthorized, errors.New("invalid credentials"))
 	}
 

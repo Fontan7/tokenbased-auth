@@ -29,8 +29,6 @@ type Credentials struct {
 	DisplayName string `json:"display_name"`
 	Email       string `json:"email" binding:"required"`
 	Password    string `json:"password"`
-	SpotifyId   string `json:"spotify_id" binding:"required"`
-	GoogleId    string `json:"google_id"`
 }
 
 // Define a struct that will be encoded to a token
@@ -39,8 +37,6 @@ type Claims struct {
 	UserName    string `json:"user_name"`
 	DisplayName string `json:"display_name"`
 	Email       string `json:"email"`
-	SpotifyID   string `json:"spotify_id"`
-	AppleID     string `json:"apple_id"`
 	jwt.StandardClaims
 }
 
@@ -56,7 +52,7 @@ func DetailError(status int, err error) *Error {
 
 const (
 	Port           = ":8080"
-	TokenIssuer    = "https://vibe-app.com"
+	TokenIssuer    = "https://.com"
 	Issuer2        = "accounts.google.com"
 	CAccessToken   = "access-token"
 	CAccessClaims  = "access-claims"

@@ -2,8 +2,8 @@ package controller
 
 import (
 	"time"
-	"token-master/database"
-	i "token-master/internal"
+	"tokenbased-auth/database"
+	i "tokenbased-auth/internal"
 
 	jwt "github.com/golang-jwt/jwt"
 )
@@ -19,8 +19,6 @@ func GenerateAccessToken(user database.User) (string, *i.Error) {
 		UserName:    user.UserName,
 		DisplayName: user.DisplayName,
 		Email:       user.Email,
-		SpotifyID:   user.SpotifyID,
-		AppleID:     user.AppleID,
 		StandardClaims: jwt.StandardClaims{
 			// In JWT, the expiry time is expressed as unix milliseconds
 			ExpiresAt: expirationTime.Unix(),

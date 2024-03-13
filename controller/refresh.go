@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 	"time"
-	"token-master/database"
-	i "token-master/internal"
+	"tokenbased-auth/database"
+	i "tokenbased-auth/internal"
 
 	"github.com/gin-gonic/gin"
 	jwt "github.com/golang-jwt/jwt"

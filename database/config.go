@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
-	"token-master/internal"
+	"tokenbased-auth/internal"
 
 	_ "github.com/lib/pq"
 )
@@ -55,14 +55,14 @@ func GetTokenSignatureKey() (string, error) {
 const (
 	// User queries
 	GetUserByIDQuery             = "SELECT * FROM users WHERE id = $1"
-	GetTokenSignatureKeyKeyQuery = "SELECT s.signature_string FROM tokenmaster.signature s  WHERE id = (SELECT MAX(id) FROM tokenmaster.signature)"
+	GetTokenSignatureKeyKeyQuery = "SELECT s.signature_string FROM tokenbased-auth.signature s  WHERE id = (SELECT MAX(id) FROM tokenbased-auth.signature)"
 	GetUserByEmailQuery          = "SELECT id, user_name, display_name, email, spotify_id, apple_id FROM users.user WHERE email = $1"
 	GetUserByIdQuery             = "SELECT id, user_name, display_name, email, spotify_id, apple_id FROM users.user WHERE id = $1"
 	InsertUserQuery              = "INSERT INTO users (user_name, email) VALUES ($1, $2) RETURNING id"
 
 	// Token queries
-	GetUserRefreshTokenQuery      = "SELECT refresh_token FROM tokenmaster.token WHERE user_id = $1"
-	GetEqualUserRefreshTokenQuery = "SELECT refresh_token FROM tokenmaster.token WHERE user_id = $1 AND refresh_token = $2"
-	UpdateUserRefreshTokenQuery   = "UPDATE tokenmaster.token SET refresh_token = $1, update = NOW() WHERE user_id = $2"
-	InsertRefreshTokenQuery       = "INSERT INTO tokenmaster.token (user_id, refresh_token) VALUES ($1, $2) ON CONFLICT (user_id) DO UPDATE SET refresh_token = EXCLUDED.refresh_token"
+	GetUserRefreshTokenQuery      = "SELECT refresh_token FROM tokenbased-auth.token WHERE user_id = $1"
+	GetEqualUserRefreshTokenQuery = "SELECT refresh_token FROM tokenbased-auth.token WHERE user_id = $1 AND refresh_token = $2"
+	UpdateUserRefreshTokenQuery   = "UPDATE tokenbased-auth.token SET refresh_token = $1, update = NOW() WHERE user_id = $2"
+	InsertRefreshTokenQuery       = "INSERT INTO tokenbased-auth.token (user_id, refresh_token) VALUES ($1, $2) ON CONFLICT (user_id) DO UPDATE SET refresh_token = EXCLUDED.refresh_token"
 )

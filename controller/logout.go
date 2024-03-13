@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"token-master/database"
-	"token-master/internal"
+	"tokenbased-auth/database"
+	"tokenbased-auth/internal"
 
 	"github.com/gin-gonic/gin"
 )

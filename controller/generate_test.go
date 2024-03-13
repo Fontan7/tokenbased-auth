@@ -2,9 +2,9 @@ package controller_test
 
 import (
 	"testing"
-	"token-master/controller"
-	"token-master/database"
-	"token-master/internal"
+	"tokenbased-auth/controller"
+	"tokenbased-auth/database"
+	"tokenbased-auth/internal"
 
 	"github.com/golang-jwt/jwt"
 	"github.com/stretchr/testify/assert"
@@ -17,8 +17,6 @@ func TestGenerateAccessToken(t *testing.T) {
 		UserName:    "user.test",
 		DisplayName: "Test User",
 		Email:       "test@example.com",
-		SpotifyID:   "spotify123",
-		AppleID:     "google123",
 	}
 
 	// Generate the access token
@@ -41,6 +39,4 @@ func TestGenerateAccessToken(t *testing.T) {
 	assert.Equal(t, user.UserName, claims.UserName)
 	assert.Equal(t, user.DisplayName, claims.DisplayName)
 	assert.Equal(t, user.Email, claims.Email)
-	assert.Equal(t, user.SpotifyID, claims.SpotifyID)
-	assert.Equal(t, user.AppleID, claims.AppleID)
 }

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"token-master/internal"
+	"tokenbased-auth/internal"
 
 	"github.com/gin-gonic/gin"
 )

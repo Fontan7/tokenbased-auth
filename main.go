@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"log"
-	"token-master/database"
-	"token-master/internal"
-	"token-master/service"
+	"tokenbased-auth/database"
+	"tokenbased-auth/internal"
+	"tokenbased-auth/service"
 )
 
 func init() {
